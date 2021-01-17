@@ -1,2 +1,7 @@
 # OI-projekt
-Projekt iz kolegija Operacijska Istraživanja 2020./2021.
+
+## Pokretanje
+python app.py
+
+##Commitanje
+Ne commitati venv folder!
