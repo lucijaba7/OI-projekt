@@ -14,5 +14,7 @@ def home():
 def user(no):
     return f"<h1>Number of guests: {no}</h1>"
 
+    
+
 if __name__== '__main__':
     app.run(port=5000, debug=True)
