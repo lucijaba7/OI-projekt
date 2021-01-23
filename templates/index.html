@@ -11,16 +11,32 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-light">
+      <span class="navbar-brand mb-0">
+        <h1>Turist.co</h1>
+      </span>
+    </nav>
+
     <div class="box">
       <div class="form d-flex justify-content-center mt-4">
         <form action="#" method="post">
-          <p>Za koliko turista organizirate putovanje ?</p>
-          <p><input type="text" name="nm" /></p>
+          <span class="turisti">
+            <p>Za koliko turista organizirate putovanje ?</p>
+            <p><input type="text" name="nm" /></p>
+          </span>
+          <span class="cijena">
+            <p>Max cijena koju namjeravate platiti ?</p>
+            <p><input type="text" name="nmm" /></p>
+          </span>
           <p>
             <input type="submit" value="Submit" />
           </p>
         </form>
       </div>
+    </div>
+
+    <div class="map fixed-bottom">
+      <span class="mapText">Place for a Map</span>
     </div>
 
     <script
@@ -41,6 +57,17 @@
   </body>
 </html>
 <style>
+  .box {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px 2em;
+  }
+  .navbar {
+    background-color: #e3f2fd;
+    justify-content: center;
+    text-align: center;
+  }
+
   input {
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -51,17 +78,35 @@
     text-align: center;
     color: white;
     width: fixed;
-    height: 220px;
-    padding: 20px;
+    height: 270px;
+    padding: 7px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background: rgba(90, 90, 90, 0.77);
+    background: rgba(132, 158, 173, 0.77);
     font-size: 16px;
     margin: auto;
-    margin-top: 8%;
+    margin-top: 3%;
+  }
+
+  .map {
+    max-width: 500px;
+    text-align: center;
+    color: white;
+    width: fixed;
+    height: 270px;
+    padding: 7px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: rgba(132, 158, 173, 0.77);
+    font-size: 16px;
+    margin: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
   }
   body {
     align-content: center;
+    font-family: 'Allerta', monospace;
   }
 </style>
