@@ -7,7 +7,7 @@ def home():
     if request.method == "POST":
         guest = request.form["nm"]
         price = request.form["nmm"]
-        return f"<h1>Broj turista : { guest } </h1> </br> <h1>Max cijena : { price }</h1>"
+        return render_template("ispis.html", guest=guest, price=price)
     else:
         return render_template("index.html")
 
