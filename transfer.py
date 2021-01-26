@@ -30,11 +30,9 @@ def transfer(x):
 
   Lp_prob1.writeLP("Transfer.lp")
 
-  status = Lp_prob1.solve()
+  Lp_prob1.solve()
 
   #print('------------RJESENJE-------------')
-
-  #print(p.LpStatus[status])
 
   #print("Vrijednost funkcije cilja: {}".format(p.value(Lp_prob.objective)))
 

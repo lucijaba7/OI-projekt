@@ -2,7 +2,7 @@ import transfer as t
 import pulp as p
 import json
 
-def ponude(x, y):
+def ponude(x, y, z):
 
     t = open('podaci.json')
     data = json.load(t)
@@ -13,7 +13,7 @@ def ponude(x, y):
     Lp_prob2 = p.LpProblem('Ponude', p.LpMaximize)
 
     ljudi = int(x)
-    transfer=12
+    transfer=y["rez"]
     lista_smjestaji=[]
     lista_izleti=[]
     lista_degustacije=[]
@@ -81,7 +81,7 @@ def ponude(x, y):
     print(lista_smjestaji)
 
     #ogranicenje na ukupnu cijenu
-    Lp_prob2 += pom <= 900*ljudi
+    Lp_prob2 += pom <= int(z)*ljudi
 
     #ogranicenje kapacitet smjestaja
     pom = 0
@@ -114,14 +114,13 @@ def ponude(x, y):
     Lp_prob2.writeLP("Ponude.lp")
 
     status = Lp_prob2.solve()
+    
+    rjesenje = (p.LpStatus[status])
 
     #('------------RJESENJE-------------')
 
-    print(p.LpStatus[status])
-
-    print("Vrijednost funkcije cilja: {}".format(p.value(Lp_prob2.objective)))
-
     varijable = {}
+    varijable["opt"] = rjesenje
 
     for v in Lp_prob2.variables():
         if(v.varValue):

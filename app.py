@@ -12,7 +12,14 @@ def home():
     if request.method == "POST":
         guest = request.form["nm"]
         price = request.form["nmm"]
-        return render_template("ispis.html", rezultat=t.transfer(guest), guest=guest, price=price, ponude=p.ponude(guest, t.transfer(guest)))
+        transfer=t.transfer(guest)
+        ponude=p.ponude(guest, transfer, price)
+
+        if ponude["opt"] == "Infeasible":
+            return render_template("index.html", alert="Ne postoji optimalno rješenje. Maksimalna cijena koju želite platiti izlazi iz prostora mogućih rješenja.")
+        else:
+            
+            return render_template("ispis.html", ljudi=guest, )
     else:
         return render_template("index.html")
 
