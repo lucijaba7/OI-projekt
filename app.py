@@ -7,7 +7,7 @@ def home():
     if request.method == "POST":
         guest = request.form["nm"]
         price = request.form["nmm"]
-        return redirect(url_for("user", no=guest,nmm=price))
+        return render_template("ispis.html")
     else: 
         return render_template("index.html")
 
