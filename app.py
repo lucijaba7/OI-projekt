@@ -11,13 +11,8 @@ def home():
     if request.method == "POST":
         guest = request.form["nm"]
         price = request.form["nmm"]
-<<<<<<< HEAD
-        return render_template("ispis.html")
-    else: 
-=======
         return render_template("ispis.html", rezultat=t.transfer(guest), guest=guest, price=price)
     else:
->>>>>>> e54d12952ef4fa1c0f85adecf994da2b56b78b48
         return render_template("index.html")
 
 

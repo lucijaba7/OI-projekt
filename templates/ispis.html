@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
   <head>
     <title>Turist.co</title>
     <link
@@ -79,6 +78,11 @@
           <td>mjesto za podatke</td>
         </tr>
 
+        <div class="map">
+          <span class="mapText">Mapa</span>
+        </div>
+        
+        
         <tr>
           <th>Degustacija</th>
         </tr>
@@ -103,15 +107,32 @@
       <br />
       <h2>Ukupna cijena :</h2>
     </div>
+    <div class="proba">
+      <h4> Broj ljudi: {{ guest }} </h4>
+      <h4> Cijena: {{ price }}</h4>
+      <h4> Transfer: {{ rezultat }}</h4>
+  </div>
 
-    <div class="map">
-      <span class="mapText">Mjesto za mapu</span>
-    </div>
+  <div class="ponuda mt-4">
+    <h3>Jednodnevni izlet - </h3>
+    <h6><strong>Dan 1</strong></h6>
+    <p>Sastanak turista ispred zračne luke Pula u 8:00. Ukrcaj u (vrsta transfera) i polazak prema (ime smještaja).
+    </br>
+    Po dolasku u (ime smještaja) turiste dočekuje vodič koji im daje upute za obavljanje check-ina. Nakon prijave svih gostiju i smještaja istih u sobe, </br>
+    slobodno vrijeme za razgledavanje grada.
+    Večera u (vrsta smještaja), noćenje.
+    </p>
+    <h6><strong>Dan 2</strong></h6>
+    <p>Doručak u (ime smještaja) 7:00-8:00. Slobodno vrijeme do 9:00 kada se polazi prema (Grad, izlet). </br>Obilazak gradova i degustacija (naziv) u gradu (grad, degustacija)
+    </br>
+    
+    </p>
+  </div>
   </body>
 </html>
 <style>
   .table {
-    margin-left: 3%;
+    margin-left: 10%;
   }
   table {
     border-collapse: collapse;
@@ -137,10 +158,11 @@
   }
 
   .map {
+    display: flex;
+    justify-content: center;
     vertical-align: middle;
     float: right;
     max-width: 500px;
-    text-align: center;
     color: white;
     width: 100%;
     height: 270px;
@@ -150,10 +172,7 @@
     border-radius: 8px;
     background: rgba(132, 158, 173, 0.77);
     font-size: 16px;
-    margin: auto;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    margin-right: 3%;
+    margin-right: 450px;
   }
   .navbar {
     background-color: #e3f2fd;
@@ -164,19 +183,7 @@
     align-content: center;
     font-family: 'Allerta', monospace;
   }
+  .proba, .ponuda{
+    margin-left: 10%;
+  }
 </style>
-=======
-
-<head>
-    <title>Turist.co</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-</head>
-
-<body>
-    <h1>Proba</h1>
-    <h2> Broj ljudi: {{ guest }} </h2>
-    <h2> Cijena: {{ price }}</h2>
-    <h2> Transfer: {{rezultat}}</h2>
-</body>
->>>>>>> e54d12952ef4fa1c0f85adecf994da2b56b78b48
