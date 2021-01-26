@@ -1,0 +1,46 @@
+{
+    "smjestaj": [
+        { "naziv": "Apartmani Maric", "grad": "Umag", "udaljenost": "83", "kapacitet": "14", "cijena_nocenje": "500" },
+        { "naziv": "Hotel Sol", "grad": "Umag", "udaljenost": "83", "kapacitet": "50", "cijena_nocenje": "400" },
+        { "naziv": "Hotel Adriatic", "grad": "Umag", "udaljenost": "83", "kapacitet": "100", "cijena_nocenje": "370" },
+        { "naziv": "Apartmani Opatic", "grad": "Porec", "udaljenost": "59", "kapacitet": "15", "cijena_nocenje": "450" },
+        { "naziv": "Hotel Porec", "grad": "Porec", "udaljenost": "57", "kapacitet": "100", "cijena_nocenje": "250" },
+        { "naziv": "Hotel Histria", "grad": "Pula", "udaljenost": "13", "kapacitet": "700", "cijena_nocenje": "200" },
+        { "naziv": "Apartmani Maris", "grad": "Pula", "udaljenost": "7", "kapacitet": "8", "cijena_nocenje": "650" },
+        { "naziv": "Apartmani Diana", "grad": "Pazin", "udaljenost": "50", "kapacitet": "7", "cijena_nocenje": "430" },
+        { "naziv": "Apartmani Borna", "grad": "Pazin", "udaljenost": "50", "kapacitet": "17", "cijena_nocenje": "425" }
+    ],
+
+    "transfer": [
+        { "vrsta": "Taxi", "kapacitet": "4", "cijena_km": "8" },
+        { "vrsta": "Taxi kombi", "kapacitet": "8", "cijena_km": "12" },
+        { "vrsta": "Mini bus", "kapacitet": "20", "cijena_km": "20" },
+        { "vrsta": "Midi bus", "kapacitet": "40", "cijena_km": "35" },
+        { "vrsta": "Bus", "kapacitet": "60", "cijena_km": "45" }
+    ],
+
+    "izleti": [
+        { "naziv": "Izlet 1", "ukupno_km": "86", "gradovi": ["Umag", "Grozbnjan", "Motovun", "Visnjan", "Novigrad"] },
+        { "naziv": "Izlet 2", "ukupno_km": "133", "gradovi": ["Umag", "Novigrad", "Groznjan", "Motovun", "Buzet"] },
+        { "naziv": "Izlet 3", "ukupno_km": "119", "gradovi": ["Porec", "Visnjan", "Sveti Petar u Sumi", "Limski Kanal", "Vrsar"] },
+        { "naziv": "Izlet 4", "ukupno_km": "108", "gradovi": ["Porec", "Rovinj", "Zminj", "Tinjan", "Visnjan"] },
+        { "naziv": "Izlet 5", "ukupno_km": "125", "gradovi": ["Porec", "Kaldir", "Pazin", "Zminj", "Rovinj"] },
+        { "naziv": "Izlet 6", "ukupno_km": "77", "gradovi": ["Pula", "Vodnjan", "Bale", "Rovinj", "Fazana"] },
+        { "naziv": "Izlet 7", "ukupno_km": "48", "gradovi": ["Pula", "Pjescana Uvala", "Premantura", "Medulin", "Valtura"] },
+        { "naziv": "Izlet 8", "ukupno_km": "81", "gradovi": ["Pazin", "Svetu Petar u Sumi", "Zminj", "Barban", "Labin"] },
+        { "naziv": "Izlet 9", "ukupno_km": "87", "gradovi": ["Pazin", "Motovun", "Buzet", "Kotli", "Hum"] }
+    ],
+
+    "degustacije": [
+        { "naziv": "Vino", "grad": "Hum", "min_1": "50", "min_10": "50", "min_30": "50", "min_50": "50", "min_70": "50", "cijena": "50" },
+        { "naziv": "Tartufi", "grad": "Motovun", "min_1": "120", "min_10": "110", "min_30": "100", "min_50": "90", "min_70": "80", "cijena": "110" },
+        { "naziv": "Maslinovo ulje", "grad": "Vodnjan", "min_1": "35", "min_10": "30", "min_30": "25", "min_50": "20", "min_70": "15", "cijena": "30" },
+        { "naziv": "Pljukanci", "grad": "Rovinj", "min_1": "50", "min_10": "45", "min_30": "40", "min_50": "35", "min_70": "30", "cijena": "45" },
+        { "naziv": "Riba (orada)", "grad": "Novigrad", "min_1": "100", "min_10": "95", "min_30": "90", "min_50": "85", "min_70": "80", "cijena": "95" },
+        { "naziv": "Kamenice", "grad": "Premantura", "min_1": "200", "min_10": "280", "min_30": "250", "min_50": "230", "min_70": "210", "cijena": "280" },
+        { "naziv": "Rakovice", "grad": "Pula", "min_1": "150", "min_10": "145", "min_30": "140", "min_50": "135", "min_70": "130", "cijena": "145" },
+        { "naziv": "Pladanj (prsut, sir)", "grad": "Visnjan", "min_1": "70", "min_10": "70", "min_30": "60", "min_50": "60", "min_70": "50", "cijena": "70" },
+        { "naziv": "Brudet", "grad": "Zminj", "min_1": "80", "min_10": "80", "min_30": "70", "min_50": "70", "min_70": "60", "cijena": "80" },
+        { "naziv": "Kobasice", "grad": "Sveti Petar u Sumi", "min_1": "50", "min_10": "50", "min_30": "45", "min_50": "40", "min_70": "35", "cijena": "50" }
+    ]
+}
