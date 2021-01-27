@@ -60,19 +60,19 @@
                             <td class="details" style="text-align: left;">Ukupni troškovi</td>
                             <td class="details"></td>
                             <td class="details"></td>
-                            <td class="details">{{dict_rjesenja["REZULTAT"]/1.15}}</td>
+                            <td class="details">{{ukupni_troskovi}}</td>
                         </tr>
                         <tr>
                             <td class="details" style="text-align: left;">Marža 15%</td>
                             <td class="details"></td>
                             <td class="details"></td>
-                            <td class="details">{{dict_rjesenja["REZULTAT"] - dict_rjesenja["REZULTAT"]/1.15}}</td>
+                            <td class="details">{{marza}}</td>
                         </tr>
                         <tr>
                             <td class="details" style="text-align: left;">PRODAJNA CIJENA ARANŽMANA</td>
                             <td class="details"></td>
                             <td class="details"></td>
-                            <td class="details">{{dict_rjesenja["REZULTAT"]}} kn</td>
+                            <td class="details">{{prodajna_cijena}}</td>
                         </tr>
                     </table>
                 </div>
@@ -82,8 +82,8 @@
             </div>
         </div>
     </div>
-    <div class="container mt-4">
-        <h3>Jednodnevni izlet - </h3>
+    <div class="container mt-4 pb-3">
+        <h3>Jednodnevni izlet</h3>
         <h6><strong>Dan 1</strong></h6>
         <p>Sastanak turista ispred zračne luke Pula u 8:00. Transfer je organiziran u vozilima:</p>
         <ul>
@@ -98,18 +98,8 @@
             u gradu {{dict_rjesenja["deg_grad"]}}.
             </br>
         </p>
-        <h3>Cijena po osobi: ____</h3>
+        <h3>Cijena po osobi: {{po_osobi}} kn</h3>
     </div>
-
-    <h2>Ukupna cijena :</h2>
-    </div>
-    <div class="proba">
-        <h4> Broj ljudi: {{ ljudi }} </h4>
-        <h4>Varijabla:{{var}}</h4>
-        <h4>i: {{i}}</h4>
-        <h4>j: {{j}}</h4>
-        <h4>k: {{k}}</h4>
-        <h4>vozila: {{vozila}}</h4>
     </div>
 </body>
 
@@ -142,32 +132,22 @@
         text-align: center;
     }
     
-    .map {
-        display: flex;
-        justify-content: center;
-        vertical-align: middle;
-        float: right;
-        max-width: 500px;
-        color: white;
-        width: 100%;
-        height: 270px;
-        padding: 7px;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        background: rgba(132, 158, 173, 0.77);
-        font-size: 16px;
-        margin-right: 450px;
-    }
-    
     .navbar {
         background-color: #e3f2fd;
         justify-content: center;
         text-align: center;
     }
-    
+
+    #map {
+        height: 630px;
+        width: 500px;
+    }
+
+    html,
     body {
-        align-content: center;
         font-family: 'Allerta', monospace;
+        height: 100%;
+        margin: 0;
+        padding: 0;
     }
 </style>

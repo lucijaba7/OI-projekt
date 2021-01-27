@@ -20,14 +20,14 @@
     ],
 
     "izleti": [
-        { "naziv": "Izlet 1", "ukupno_km": "86", "gradovi": ["Umag", "Grozbnjan", "Motovun", "Visnjan", "Novigrad"] },
+        { "naziv": "Izlet 1", "ukupno_km": "86", "gradovi": ["Umag", "Groznjan", "Motovun", "Visnjan", "Novigrad"] },
         { "naziv": "Izlet 2", "ukupno_km": "133", "gradovi": ["Umag", "Novigrad", "Groznjan", "Motovun", "Buzet"] },
         { "naziv": "Izlet 3", "ukupno_km": "119", "gradovi": ["Porec", "Visnjan", "Sveti Petar u Sumi", "Limski Kanal", "Vrsar"] },
         { "naziv": "Izlet 4", "ukupno_km": "108", "gradovi": ["Porec", "Rovinj", "Zminj", "Tinjan", "Visnjan"] },
         { "naziv": "Izlet 5", "ukupno_km": "125", "gradovi": ["Porec", "Kaldir", "Pazin", "Zminj", "Rovinj"] },
         { "naziv": "Izlet 6", "ukupno_km": "77", "gradovi": ["Pula", "Vodnjan", "Bale", "Rovinj", "Fazana"] },
         { "naziv": "Izlet 7", "ukupno_km": "48", "gradovi": ["Pula", "Pjescana Uvala", "Premantura", "Medulin", "Valtura"] },
-        { "naziv": "Izlet 8", "ukupno_km": "81", "gradovi": ["Pazin", "Svetu Petar u Sumi", "Zminj", "Barban", "Labin"] },
+        { "naziv": "Izlet 8", "ukupno_km": "81", "gradovi": ["Pazin", "Sveti Petar u Sumi", "Zminj", "Barban", "Labin"] },
         { "naziv": "Izlet 9", "ukupno_km": "87", "gradovi": ["Pazin", "Motovun", "Buzet", "Kotli", "Hum"] }
     ],
 

@@ -13,21 +13,19 @@ def home():
         guest = int(request.form["nm"])
         price = request.form["nmm"]
         transfer=t.transfer(guest)
-        ponude=p.ponude(guest, transfer, price)
+        ponude=p.ponude(guest, transfer, price)  
+        prodajna_cijena=round(ponude["REZULTAT"],2)
+        po_osobi=round(prodajna_cijena/guest,2)
+        ukupni_troskovi=round(prodajna_cijena/1.15,2)
+        marza=round(prodajna_cijena - prodajna_cijena/1.15,2)
 
         if ponude["opt"] == "Infeasible":
             return render_template("index.html", alert="Ne postoji optimalno rješenje. Maksimalna cijena koju želite platiti izlazi iz prostora mogućih rješenja.")
         else:
-            return render_template("ispis.html", dict_rjesenja=ponude, ljudi=guest)
+            return render_template("ispis.html", dict_rjesenja=ponude, ljudi=guest, ukupni_troskovi=ukupni_troskovi, marza=marza, prodajna_cijena=prodajna_cijena, po_osobi=po_osobi)
     else:
         return render_template("index.html")
 
-
-
-@app.route("/podaci")
-def user():
-    #Dorada output-a
-    return render_template("ispis.html")
   
 if __name__== '__main__':
     app.run(port=5000, debug=True)
