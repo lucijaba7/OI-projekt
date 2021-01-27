@@ -2,7 +2,7 @@
 Minimize
 OBJ: 8 x1 + 12 x2 + 20 x3 + 35 x4 + 45 x5
 Subject To
-_C1: 4 x1 + 8 x2 + 20 x3 + 40 x4 + 60 x5 >= 25
+_C1: 4 x1 + 8 x2 + 20 x3 + 40 x4 + 60 x5 >= 20
 Bounds
 0 <= x1
 0 <= x2
