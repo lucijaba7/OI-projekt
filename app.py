@@ -10,7 +10,7 @@ price = ""
 @app.route("/", methods=["POST", "GET"])
 def home():
     if request.method == "POST":
-        guest = request.form["nm"]
+        guest = int(request.form["nm"])
         price = request.form["nmm"]
         transfer=t.transfer(guest)
         ponude=p.ponude(guest, transfer, price)
@@ -18,8 +18,7 @@ def home():
         if ponude["opt"] == "Infeasible":
             return render_template("index.html", alert="Ne postoji optimalno rješenje. Maksimalna cijena koju želite platiti izlazi iz prostora mogućih rješenja.")
         else:
-            
-            return render_template("ispis.html", ljudi=guest, )
+            return render_template("ispis.html", dict_rjesenja=ponude, ljudi=guest)
     else:
         return render_template("index.html")
 

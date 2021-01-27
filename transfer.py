@@ -43,10 +43,14 @@ def transfer(x):
 
   varijable = {}
   varijable["rez"] = rezultat
+  pom={}
 
   for v in Lp_prob1.variables():
     if(v.varValue):
-      varijable[v.name] = v.varValue
+      i=int(v.name[1])-1
+      pom[transfer[i]["vrsta"]] = int(v.varValue)
+
+  varijable["vozila"] = pom
 
   return varijable
 

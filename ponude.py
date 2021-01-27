@@ -1,6 +1,7 @@
 import transfer as t
 import pulp as p
 import json
+from decimal import *
 
 def ponude(x, y, z):
 
@@ -110,7 +111,7 @@ def ponude(x, y, z):
     #ogranicenje sume var. ćelija
     Lp_prob2 += sum(rijecnik.values()) == 1
 
-
+    #rjesavanje
     Lp_prob2.writeLP("Ponude.lp")
 
     status = Lp_prob2.solve()
@@ -119,11 +120,62 @@ def ponude(x, y, z):
 
     #('------------RJESENJE-------------')
 
-    varijable = {}
-    varijable["opt"] = rjesenje
+    #rijecnik rjesenja
+    dict_rjesenja = {}
 
+    #jeli rjesenje optimalno ili unfeasible
+    dict_rjesenja["opt"] = rjesenje
+
+    #odabrana varijabla
+    var=""
+    
     for v in Lp_prob2.variables():
         if(v.varValue):
-            varijable[v.name] = v.varValue
+            var = v.name
+    
+    dict_rjesenja["varijabla"]=var
+    
+    
+    i=int(var[1])-1
+    j=int(var[2])-1
+    k=int(var[3])-1
+    
+    dict_rjesenja["i"]=i
+    dict_rjesenja["j"]=j
+    dict_rjesenja["k"]=k
 
-    return varijable
+    #cijena transporta
+    dict_rjesenja["cijena_prijevoza"] = int(transfer) * int(smjestaj[i]["udaljenost"])
+
+    #vozila
+    dict_rjesenja["vozila"] = y["vozila"]
+
+    #naziv_smjestaja
+    dict_rjesenja["naziv_smjestaja"] = smjestaj[i]["naziv"]
+
+    #grad_smjestaja
+    dict_rjesenja["grad_smjestaja"] = smjestaj[i]["grad"]
+
+    #nocenje
+    dict_rjesenja["cijena_nocenje"] = int(smjestaj[i]["cijena_nocenje"])
+
+    #cijena_prijevoza_izlet
+    dict_rjesenja["cijena_prijevoza_izlet"] = int(transfer) * int(izleti[j]["ukupno_km"])
+    
+    #izlet_gradovi
+    dict_rjesenja["izlet_gradovi"] = izleti[j]["gradovi"]
+
+    #deg_naziv
+    dict_rjesenja["deg_naziv"] = degustacije[k]["naziv"]
+
+    #deg_grad
+    dict_rjesenja["deg_grad"] = degustacije[k]["grad"]
+
+    #deg_cijena
+    dict_rjesenja["deg_cijena"] = f_cijena(degustacije[k])
+
+    #REZULTAT
+
+    dict_rjesenja["REZULTAT"] = p.value(Lp_prob2.objective)
+
+    return dict_rjesenja

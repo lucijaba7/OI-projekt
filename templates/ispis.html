@@ -1,157 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Turist.co</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-  </head>
 
-  <body>
+<head>
+    <title>Turist.co</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
+
+<body>
     <nav class="navbar navbar-light">
-      <span class="navbar-brand mb-0">
+        <span class="navbar-brand mb-0">
         <h1>Turist.co</h1>
       </span>
     </nav>
     <br />
     <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-6">
-          <div class="table">
-            <h2>Rezultat :</h2>
-            <!---Table---------------------------------------------------->
-            <table>
-              <tr>
-                <th>Opis usluge</th>
-                <th>Količina</th>
-                <th>Iznos (kn)</th>
-              </tr>
-              <tr>
-                <td>Transfer od zračne luke do smještaja</td>
-                <td>2</td>
-                <td>mjesto za podatke</td>
-              </tr>
-              <tr>
-                <td>Smještaj u ____</td>
-                <td>br_ljudi</td>
-                <td>mjesto za podatke</td>
-              </tr>
-              <tr>
-                <td>Transfer za izlet</td>
-                <td>1</td>
-                <td>mjesto za podatke</td>
-              </tr>
-              <tr>
-                <td>Vodič</td>
-                <td>8</td>
-                <td>50</td>
-                </tr>
-                <tr>
-                  <td>Degustacija ____</td>
-                  <td>br_ljudi</td>
-                <td>mjesto za podatke</td>
-              </tr>
-              <tr>
-                <td class="details" colspan="3">Ukupni troškovi</td>
-                </tr>
-                <tr>
-                  <td class="details" colspan="3">Marža 15%</td>
-                </tr>
-                <tr>
-                  <td class="details" colspan="3">PRODAJNA CIJENA ARANŽMANA</td>
-                </tr>
-                <tr>
-                  <td class="details" colspan="3">PROFIT</td>
-                </tr>
-            </table>
-            </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="table">
+                    <h2>Rezultat :</h2>
+                    <!---Table---------------------------------------------------->
+                    <table>
+                        <tr>
+                            <th style="text-align: left;">Opis usluge</th>
+                            <th>Količina</th>
+                            <th>Jedinična cijena</th>
+                            <th>Ukupno (kn)</th>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Transfer od zračne luke do smještaja</td>
+                            <td>2</td>
+                            <td>{{dict_rjesenja["cijena_prijevoza"]}}</td>
+                            <td>{{dict_rjesenja["cijena_prijevoza"]*2}}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Smještaj u {{dict_rjesenja["naziv_smjestaja"]}}</td>
+                            <td>{{ljudi}}</td>
+                            <td>{{dict_rjesenja["cijena_nocenje"]}}</td>
+                            <td>{{dict_rjesenja["cijena_nocenje"]*ljudi}}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Transfer za izlet</td>
+                            <td>1</td>
+                            <td>{{dict_rjesenja["cijena_prijevoza_izlet"]}}</td>
+                            <td>{{dict_rjesenja["cijena_prijevoza_izlet"]}}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Vodič</td>
+                            <td>8</td>
+                            <td>50</td>
+                            <td>400</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Degustacija {{dict_rjesenja["deg_naziv"]}}</td>
+                            <td>{{ljudi}}</td>
+                            <td>{{dict_rjesenja["deg_cijena"]}}</td>
+                            <td>{{dict_rjesenja["deg_cijena"]*ljudi}}</td>
+                        </tr>
+                        <tr>
+                            <td class="details" style="text-align: left;">Ukupni troškovi</td>
+                            <td class="details"></td>
+                            <td class="details"></td>
+                            <td class="details">{{dict_rjesenja["REZULTAT"]/1.15}}</td>
+                        </tr>
+                        <tr>
+                            <td class="details" style="text-align: left;">Marža 15%</td>
+                            <td class="details"></td>
+                            <td class="details"></td>
+                            <td class="details">{{dict_rjesenja["REZULTAT"] - dict_rjesenja["REZULTAT"]/1.15}}</td>
+                        </tr>
+                        <tr>
+                            <td class="details" style="text-align: left;">PRODAJNA CIJENA ARANŽMANA</td>
+                            <td class="details"></td>
+                            <td class="details"></td>
+                            <td class="details">{{dict_rjesenja["REZULTAT"]}} kn</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <div class="col-12 col-lg-6">
-              <p>MAPA</p>
+                <p>MAPA</p>
             </div>
-          </div>
-      </div>
-      <div class="container mt-4">
+        </div>
+    </div>
+    <div class="container mt-4">
         <h3>Jednodnevni izlet - </h3>
         <h6><strong>Dan 1</strong></h6>
-        <p>Sastanak turista ispred zračne luke Pula u 8:00. Ukrcaj u (vrsta transfera) i polazak prema (ime smještaja).
-        </br>
-        Po dolasku u (ime smještaja) turisti obavljaju check-in i smještaju se u svoje sobe. Nakon prijave svih gostiju i
-        smještaja istih u sobe, </br>
-        slobodno vrijeme za razgledavanje grada.
+        <p>Sastanak turista ispred zračne luke Pula u 8:00. Transfer je organiziran u vozilima:</p>
+        <ul>
+            {% for key,value in dict_rjesenja["vozila"].items() %}
+            <li>{{value}} x {{key}}</li> {% endfor %}
+        </ul>
+        <p>Nakon ukrcaja u vozilo/a, kreće polazak prema {{dict_rjesenja["naziv_smjestaja"]}}. Po dolasku u {{dict_rjesenja["naziv_smjestaja"].split(' ', 1)[0].lower()}} turisti obavljaju check-in i smještaju se u svoje sobe. Nakon prijave svih gostiju i
+            smještaja istih u sobe, slobodno vrijeme za razgledavanje grada.
         </p>
         <h6><strong>Dan 2</strong></h6>
-        <p>Polazak na jednodnevni izlet u 9:00. Tokom izleta razgledat će se gradovi: (gradovi). </br>U izlet je uključena i
-          degustacija (naziv) u gradu (grad, degustacija)
-        </br>
+        <p>Polazak na jednodnevni izlet u 9:00. Tokom izleta razgledat će se gradovi: {% for i in dict_rjesenja["izlet_gradovi"] %} {{i}}{% if dict_rjesenja["izlet_gradovi"].index(i) != 4 %}, {%endif%}{%endfor%}. U izlet je uključena i degustacija {{dict_rjesenja["deg_naziv"].lower()}}
+            u gradu {{dict_rjesenja["deg_grad"]}}.
+            </br>
         </p>
         <h3>Cijena po osobi: ____</h3>
-        </div>
-        
-        <h2>Ukupna cijena :</h2>
-        </div>
-        <div class="proba">
-          <h4> Broj ljudi: {{ guest }} </h4>
-          <h4> Cijena: {{ price }}</h4>
-          <h4 id="transfer"> Transfer: {{ rezultat }}</h4>
-          <h4> Ponude: {{ ponude }}</h4>
     </div>
-  </body>
+
+    <h2>Ukupna cijena :</h2>
+    </div>
+    <div class="proba">
+        <h4> Broj ljudi: {{ ljudi }} </h4>
+        <h4>Varijabla:{{var}}</h4>
+        <h4>i: {{i}}</h4>
+        <h4>j: {{j}}</h4>
+        <h4>k: {{k}}</h4>
+        <h4>vozila: {{vozila}}</h4>
+    </div>
+</body>
+
 </html>
 <script>
-  console.log(document.getElementById("transfer").innerHTML);
 </script>
 
 <style>
-  table {
-    border-collapse: collapse;
-  }
-
-  td {
-    text-align: center;
-    padding: 8px;
-  }
-  .details {
-    background-color: #e3f2fd;
-  }
-
-  tr {
-    background-color: #f2f2f2;
-  }
-
-  th {
-    background-color: rgba(132, 158, 173, 0.77);
-    color: white;
-    text-align: center;
-  }
-
-  .map {
-    display: flex;
-    justify-content: center;
-    vertical-align: middle;
-    float: right;
-    max-width: 500px;
-    color: white;
-    width: 100%;
-    height: 270px;
-    padding: 7px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background: rgba(132, 158, 173, 0.77);
-    font-size: 16px;
-    margin-right: 450px;
-  }
-  .navbar {
-    background-color: #e3f2fd;
-    justify-content: center;
-    text-align: center;
-  }
-  body {
-    align-content: center;
-    font-family: 'Allerta', monospace;
-  }
+    table {
+        border-collapse: collapse;
+    }
+    
+    td {
+        padding: 8px;
+    }
+    
+    .details {
+        background-color: #e3f2fd;
+        font-weight: bolder;
+    }
+    
+    tr {
+        text-align: center;
+        background-color: #f2f2f2;
+    }
+    
+    th {
+        background-color: rgba(132, 158, 173, 0.77);
+        color: white;
+        text-align: center;
+    }
+    
+    .map {
+        display: flex;
+        justify-content: center;
+        vertical-align: middle;
+        float: right;
+        max-width: 500px;
+        color: white;
+        width: 100%;
+        height: 270px;
+        padding: 7px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: rgba(132, 158, 173, 0.77);
+        font-size: 16px;
+        margin-right: 450px;
+    }
+    
+    .navbar {
+        background-color: #e3f2fd;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    body {
+        align-content: center;
+        font-family: 'Allerta', monospace;
+    }
 </style>
