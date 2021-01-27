@@ -4,6 +4,52 @@
 <head>
     <title>Turist.co</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl7Aa5cSlOtX4hv0ZMJIf7pbObbw5dAVI&map_ids=df1431704b187788&callback=initMap&libraries=&v=weekly" defer></script>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        
+        td {
+            padding: 8px;
+        }
+        
+        .details {
+            background-color: #e3f2fd;
+            font-weight: bolder;
+        }
+        
+        tr {
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+        
+        th {
+            background-color: rgba(132, 158, 173, 0.77);
+            color: white;
+            text-align: center;
+        }
+        
+        .navbar {
+            background-color: #e3f2fd;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        #map {
+            height: 630px;
+            width: 500px;
+        }
+        
+        html,
+        body {
+            font-family: 'Allerta', monospace;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -78,7 +124,9 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <p>MAPA</p>
+                <p>
+                    <div id="map"></div>
+                </p>
             </div>
         </div>
     </div>
@@ -101,73 +149,311 @@
         <h3>Cijena po osobi: ____</h3>
     </div>
 
-    <h2>Ukupna cijena :</h2>
-    </div>
-    <div class="proba">
-        <h4> Broj ljudi: {{ ljudi }} </h4>
-        <h4>Varijabla:{{var}}</h4>
-        <h4>i: {{i}}</h4>
-        <h4>j: {{j}}</h4>
-        <h4>k: {{k}}</h4>
-        <h4>vozila: {{vozila}}</h4>
-    </div>
 </body>
 
 </html>
 <script>
-</script>
+    let map;
 
-<style>
-    table {
-        border-collapse: collapse;
-    }
-    
-    td {
-        padding: 8px;
-    }
-    
-    .details {
-        background-color: #e3f2fd;
-        font-weight: bolder;
-    }
-    
-    tr {
-        text-align: center;
-        background-color: #f2f2f2;
-    }
-    
-    th {
-        background-color: rgba(132, 158, 173, 0.77);
-        color: white;
-        text-align: center;
-    }
-    
-    .map {
-        display: flex;
-        justify-content: center;
-        vertical-align: middle;
-        float: right;
-        max-width: 500px;
-        color: white;
-        width: 100%;
-        height: 270px;
-        padding: 7px;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        background: rgba(132, 158, 173, 0.77);
-        font-size: 16px;
-        margin-right: 450px;
-    }
-    
-    .navbar {
-        background-color: #e3f2fd;
-        justify-content: center;
-        text-align: center;
-    }
-    
-    body {
-        align-content: center;
-        font-family: 'Allerta', monospace;
-    }
-</style>
+    function initMap() {
+        const pula = {
+            lat: 44.869441,
+            lng: 13.854558
+        }
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: {
+                lat: 45.15,
+                lng: 13.90
+            },
+            zoom: 9,
+            mapId: "df1431704b187788",
+            mapTypeControl: false
+
+        })
+
+
+
+        //------------------AERODROM-----------------
+
+        //slika
+
+        const aerodrom = '/static/aerodrom10.png'
+
+        //info window
+        const aerodromInfo = new google.maps.InfoWindow({
+            content: '<div id="content"><h5>Pulski aerodrom</h5></div>'
+        });
+
+        //marker
+        const aerodromMarker = new google.maps.Marker({
+            position: {
+                lat: 44.89922,
+                lng: 13.92308
+            },
+            map,
+            icon: aerodrom
+        });
+
+        aerodromMarker.addListener("click", () => {
+            aerodromInfo.open(map, aerodromMarker);
+        });
+
+        const gradovi = [{
+            position: new google.maps.LatLng(45.435099032839155, 13.516478924463406),
+            properties: {
+                name: "Umag"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.38010593857335, 13.722922725047118),
+            properties: {
+                name: "Groznjan"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.3388419653472, 13.82842406343547),
+            properties: {
+                name: "Motovun"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.27763952515149, 13.721491884957757),
+            properties: {
+                name: "Visnjan"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.3255418795907, 13.557400615913444),
+            properties: {
+                name: "Novigrad"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.40968136329559, 13.966635768388766),
+            properties: {
+                name: "Buzet"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.23071652858854, 13.593107814370514),
+            properties: {
+                name: "Porec"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.18359248927548, 13.86474336206749),
+            properties: {
+                name: "Sveti Petar u Sumi"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.13082815859892, 13.629152327306793),
+            properties: {
+                name: "Limski kanal"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.15157304463853, 13.605500557943637),
+            properties: {
+                name: "Vrsar"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.08242247252611, 13.634160481979377),
+            properties: {
+                name: "Rovinj"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.14567660352068, 13.90321392347839),
+            properties: {
+                name: "Zminj"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.219250182631065, 13.842103067332822),
+            properties: {
+                name: "Tinjan"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.315057708620046, 13.849250601891725),
+            properties: {
+                name: "Kaldir"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.24118642098844, 13.930729163061311),
+            properties: {
+                name: "Pazin"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(44.97100110478006, 13.845442899905935),
+            properties: {
+                name: "Vodnjan"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.000557688419725, 13.724373001051655),
+            properties: {
+                name: "Bale"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(44.925045836517995, 13.801509612614229),
+            properties: {
+                name: "Fazana"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(44.83781141712609, 13.84602337908532),
+            properties: {
+                name: "Pjescana uvala"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(44.80267605164258, 13.909662102862978),
+            properties: {
+                name: "Premantura"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(44.82424752121107, 13.932798383354324),
+            properties: {
+                name: "Medulin"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(44.90291677029074, 13.957367933308376),
+            properties: {
+                name: "Valtura"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.06574728874322, 14.023735215290174),
+            properties: {
+                name: "Barban"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.08696497040728, 14.123442637269235),
+            properties: {
+                name: "Labin"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.36819593865938, 14.015749927092687),
+            properties: {
+                name: "Kotli"
+            },
+            type: "grad"
+        }, {
+            position: new google.maps.LatLng(45.350507462928284, 14.034459635073619),
+            properties: {
+                name: "Hum"
+            },
+            type: "grad"
+        }, ]
+
+
+
+        //----------------------SMJEŠTAJ------------------
+
+        //slika
+        const smjestaj = '/static/smjestaj10.png';
+
+        //info window
+        const smjestajInfo = new google.maps.InfoWindow({
+            content: '<div id="content"><h5>{{dict_rjesenja["naziv_smjestaja"]}}</h5><p>Grad: {{dict_rjesenja["grad_smjestaja"]}}</p></div>'
+        });
+
+        //marker
+
+        const smjestaj_grad = '{{dict_rjesenja["grad_smjestaja"]}}'
+
+        for (let i = 0; i < gradovi.length; i++) {
+            if (gradovi[i]["properties"]["name"] == smjestaj_grad) {
+                var smjestajMarker = new google.maps.Marker({
+                    position: gradovi[i].position,
+                    icon: smjestaj,
+                    map: map,
+                });
+            };
+        }
+
+
+        smjestajMarker.addListener("click", () => {
+            smjestajInfo.open(map, smjestajMarker);
+        });
+
+        //----------------------DEGUSTACIJA-----------------
+
+        //slika
+        const degustacija = '/static/degustacija10.png';
+
+        //info window
+        const degustacijaInfo = new google.maps.InfoWindow({
+            content: '<div id="content"><h5>Degustacija</h5><p>{{dict_rjesenja["deg_naziv"]}}</p></div>'
+        });
+
+        //marker
+
+        const deg_grad = '{{dict_rjesenja["deg_grad"]}}'
+
+
+        for (let i = 0; i < gradovi.length; i++) {
+            if (gradovi[i]["properties"]["name"] == deg_grad) {
+                var degustacijaMarker = new google.maps.Marker({
+                    position: gradovi[i].position,
+                    icon: degustacija,
+                    map: map,
+                });
+            }
+        }
+
+
+
+
+        degustacijaMarker.addListener("click", () => {
+            degustacijaInfo.open(map, degustacijaMarker);
+        });
+
+
+        //----------------------------------IZLETI-------------------
+
+        //slika
+        const izlet_grad = '/static/target_3.png';
+
+
+        //info window
+        const gradInfo = new google.maps.InfoWindow({
+            content: '<div id="content"><h5>hmm</h5><p>{{dict_rjesenja["deg_naziv"]}}</p></div>'
+        });
+
+        //marker
+
+        var pom = '{% for i in dict_rjesenja["izlet_gradovi"] %}{{i}}{%endfor%}'
+        var izlet_gradovi = pom.match(/[A-Z][a-z]+/g);
+
+
+
+        for (let i = 0; i < gradovi.length; i++) {
+            for (let j = 0; j < izlet_gradovi.length; j++) {
+                if (gradovi[i]["properties"]["name"] == izlet_gradovi[j] && izlet_gradovi[j] != smjestaj_grad && izlet_gradovi[j] != deg_grad) {
+                    var gradMarker = new google.maps.Marker({
+                        position: gradovi[i].position,
+                        icon: izlet_grad,
+                        map: map,
+                    });
+                }
+            }
+        };
+
+        /*gradMarker.addListener("click", () => {
+            gradInfo.open(map, gradMarker);
+        });*/
+
+
+    };
+</script>
