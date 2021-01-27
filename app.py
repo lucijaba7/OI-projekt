@@ -25,7 +25,3 @@ def home():
             return render_template("ispis.html", dict_rjesenja=ponude, ljudi=guest, ukupni_troskovi=ukupni_troskovi, marza=marza, prodajna_cijena=prodajna_cijena, po_osobi=po_osobi)
     else:
         return render_template("index.html")
-
-  
-if __name__== '__main__':
-    app.run(port=5000, debug=True)
