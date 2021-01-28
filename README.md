@@ -1,5 +1,8 @@
 # OI-projekt
 
+## LINK NA SERVER
+https://turist-oi.herokuapp.com/
+
 ## Zadatak 
 Voditelj ste turističke agencije koja se bavi posredovanjem u pružanju usluga
 smještaja te organizacijom izleta. Za skupinu turista trebate organizirati transfer
