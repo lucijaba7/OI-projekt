@@ -12,7 +12,7 @@ jednodnevni izlet koji će uključiti i degustaciju lokalnih proizvoda. Cilj vam
 poslovati profitabilno.
 
 ## Pokretanje
+pip install flask
+pip install pulp
 python app.py
 
-## Commitanje
-Ne commitati venv folder!
