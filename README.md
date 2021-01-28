@@ -13,6 +13,6 @@ poslovati profitabilno.
 
 ## Pokretanje
 pip install flask
-pip install pulp
-python app.py
+<br />pip install pulp
+<br />python app.py
 
