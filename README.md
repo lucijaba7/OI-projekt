@@ -1,6 +1,6 @@
 # OI-projekt
 
-## LINK NA SERVER
+## Link na rješenje zadatka
 https://turist-oi.herokuapp.com/
 
 ## Zadatak 
